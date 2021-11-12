@@ -13,12 +13,12 @@
   
         async add(key, val) {
             console.log('firebase add  ');
-            const docRef = this.db.doc(`orders/${this.makeDocHash(20)}`);
+            const docRef = this.db.doc(`damage/${this.makeDocHash(20)}`);
             return docRef.set(val); 
         }
-        
+
         async getAll(cb)    { 
-            const docRef = this.db.collection(`orders`);
+            const docRef = this.db.collection(`damage`);
             const snapshot = await docRef.get();
             return await snapshot.docs.map(e => e.data());
         }

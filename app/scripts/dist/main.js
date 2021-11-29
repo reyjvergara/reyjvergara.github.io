@@ -16922,7 +16922,8 @@ var ChatApp = function ChatApp() {
   this.chatForm = new _dom.ChatForm('#js-chat-form', '#js-message-input');
   this.chatList = new _dom.ChatList('#js-message-list', this.username);
 
-  _wsClient.default.init('ws://localhost:3001');
+  //_wsClient.default.init('ws://localhost:3001');
+  _wsClient.default.init('ws://reyjvergara.github.io:3001/app/index.html');
 
   _wsClient.default.registerOpenHandler(function () {
     _this.chatForm.init(function (data) {

@@ -1,0 +1,48 @@
+body{
+    line-height: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+table, th, td,tr{
+    border-collapse: collapse;
+    border: solid;
+    width: 100%;
+    table-layout: fixed;
+
+}
+
+table{
+    border-top: 1em;
+    margin: 0;
+    padding: 0;
+}
+
+td span{
+    align-items: center;
+    padding-left: 5px;
+}
+
+td p{
+    text-align: center;
+}
+
+#topPlayers tr:nth-child(even){
+    background-color:lightgrey;
+}
+
+#topPlayers tr:nth-child(odd){
+    background-color: whitesmoke;
+}
+/*#topPlayers td:nth-child(even){
+    background-color: sienna;
+}*/
+
+.lbRow{
+    background-color: cadetblue;
+}
+
+.lb img{
+    position: relative;
+    left: 10px;
+    top:8px;
+    padding-right: 5px;
+}

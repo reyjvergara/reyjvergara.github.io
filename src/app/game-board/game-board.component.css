@@ -1,0 +1,261 @@
+html,
+body 
+{
+    margin: 0;
+    height: 100%;
+    min-height: 100%;
+    border-radius: 5px;
+}
+
+body 
+{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFE088;
+}
+
+
+main 
+{
+    display: flex;
+    flex: 3;
+}
+
+header 
+{
+    margin-top: 20px;
+    text-align: center;
+    width: 100%;
+    flex: 1;
+}
+
+.head
+{
+    width: auto;
+    height: 125px;
+}
+
+.player-flex 
+{
+    margin-right: 10px;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    height: 100%;
+    border: solid #2a75bb;
+    border-width: 3px;
+    border-radius: 5px;
+    background-color: white;
+    text-align: center;
+}
+
+.player-list-flex 
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 5px;
+    margin-left: 5px;
+    align-items: center;
+}
+
+.list-image
+{
+    height: 50px;
+}
+
+.player-name 
+{
+    border: solid white;
+    border-radius: 5px;
+    background-color: #2a75bb;
+}
+
+.opponent-name 
+{
+    border: solid white;
+    border-radius: 5px;
+    background-color: rgb(192, 58, 58);
+}
+
+.opponent-flex 
+{
+    margin-right: 10px;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    height: 100%;
+    border: solid rgb(192, 58, 58);
+    border-width: 3px;
+    border-radius: 5px;
+    background-color: white;
+    text-align: center;
+}
+
+.player-grid 
+{
+    display: grid;
+    grid-template-rows: repeat(1, 1fr);
+}
+
+.board-flex 
+{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    border: solid #3B4CCA;
+    border-width: 3px;
+    border-radius: 5px;
+    background-color: white;
+    text-align: center;
+}
+
+.combatlog::-webkit-scrollbar 
+{
+    display: none;
+}
+
+.combatlog
+{
+    height: 558px;
+    width: 50%;
+    border: solid #3B4CCA;
+    border-width: 3px;
+    border-radius: 5px;
+    background-color: white;
+    text-align: center;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.loginRegister {
+    width: 50%;
+    border: solid #3B4CCA;
+    border-width: 3px;
+    border-radius: 5px;
+    background-color: white;
+    height: 558px;
+}
+
+.login-flex
+{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.board-grid 
+{
+    height: 100%;
+    margin: 10px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-gap: 2px;
+}
+
+.grid-item 
+{
+    border: solid black;
+    border-radius: 5px;
+}
+
+.add-grass 
+{
+    background-image: url(https://www.pwo-wiki.info/images/4/46/Grass_comparison.png);
+    border: solid #92D1B3;
+}
+
+.add-gamestate 
+{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-ball 
+{
+    background-image: url(http://pixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com/image/e7cb1a05e60dd2e.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 110px;
+    /* border: solid #2a75bb; */
+    background-position-y: -17px;
+    background-color: #2a75bb;
+    text-decoration: none;
+}
+
+.add-ball:hover 
+{
+    background-size: 150px;
+    background-position-y: -46px;
+}
+
+.add-ball:active
+{
+    background-image: "../../assets/Pokeball-PNG-HD-Image.png";
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 150px;
+    background-position-y: -30px;
+    background-position-x: 8px;
+}
+
+.capitalize 
+{
+    text-transform: capitalize;
+}
+
+.add-ball-enemy 
+{
+    background-image: url(http://pixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com/image/e7cb1a05e60dd2e.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 110px;
+    background-position-y: -17px;
+    /* border: solid rgb(192, 58, 58); */
+    background-color: rgb(192, 58, 58);
+    text-decoration: none;
+}
+
+.grid-item button 
+{
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+footer 
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+    align-items: center;
+}
+
+.bottom-button 
+{
+    height: 100%;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 8px;
+    background-color: darkseagreen;
+    border-color: whitesmoke;
+}
+
+.LB
+{
+    width: 50%;
+    border: solid #3B4CCA;
+    border-width: 3px;
+    border-radius: 5px;
+    background-color: white;
+    height: 558px;
+}

@@ -1,0 +1,26 @@
+<body>
+    <table id="topPlayers">
+        <!--<img id="master" class="pokeball-lb" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/master-ball.png">
+        <img id="ultra" class="pokeball-lb"src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/ultra-ball.png">-->
+        <tr>
+            <th class="lbRow">Name</th>
+            <th class="lbRow">Matches</th>
+            <th class="lbRow">Wins</th>
+            <th class="lbRow">Losses</th>
+            <th class="lbRow">Win Rate</th>
+        </tr>
+        <tr class="lb" *ngFor="let users of leaderboard; let indexofLB=index;">
+            <td *ngIf="indexofLB < 3" > <img [src]="top3_pball[indexofLB]" title="Awarded to {{users.username}}"><span>{{users.username}}</span></td>
+            <td *ngIf="indexofLB > 3 || indexofLB == 3"><p>{{users.username}}</p></td> 
+            <!-- Allows for Pokeballs to appeat for top 3 players only-->
+            <td><p>{{users.matches}}</p></td>
+            <td><p>{{users.wins}}</p></td>
+            <td><p>{{users.losses}}</p></td>
+            <td>
+                <p>{{WinRate(users.wins, users.matches)}}%</p>
+            </td>
+        </tr>
+
+    </table>
+
+</body>

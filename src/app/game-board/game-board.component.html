@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> PokeAC </title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="game-board.component.css">
+    <meta name="viewport" content="width = device-width, initial-scale = 1.0">
+    <meta name="description" content="Pokemon Auto Chess!">
+</head>
+
+<body>
+    <header>
+        <img class="head" src="../../assets/userlmn_94e0458ca35d9b788b5982c1788071b1.png">
+    </header>
+
+    <main>
+        <section class="player-flex">
+            <div>
+                <div class="player-name">
+                    <h2>{{loggedInUser.username}}</h2>
+                </div>
+            </div>
+
+            <div class="player-grid" *ngFor="let pokemon of playerPokemon">
+                <div class= "player-list-flex"><img src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{pokemon.id}}.png" class="list-image"><span>{{pokemon.name}}</span><span><img src = "https://raw.githubusercontent.com/msikma/pokeresources/master/resources/type-icons/gen8/{{pokemon.type1}}.svg"></span></div>
+            </div>
+        </section>
+
+        <section class="board-flex" *ngIf="showBoard">
+            <div class="board-grid">
+                <div class="grid-item add-ball-enemy" *ngFor="let pokemon of enemySelectPokemon">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon.id}}.png">
+                </div>
+                <div class="grid-item" style="background-color: #2a75bb">
+
+                </div>
+                <div class="grid-item add-grass">
+                </div>
+                <div class="grid-item add-grass">
+                </div>
+                <div class="grid-item add-grass">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{enemyPokemon[0].id}}.png" *ngIf="enemyPokemon.length> 0">
+                </div>
+                <div class="grid-item" style="background-color: rgb(192, 58, 58)">
+                </div>
+                <div class="grid-item" style="background-color: #2a75bb">
+                    <h3 *ngIf="playerHP[0] > 0"><br>HP: {{playerHP[0]}}</h3>
+                    <h3 *ngIf="playerHP[0] <= 0"><br>Fainted</h3>
+                </div>
+                <div class="grid-item add-grass">
+                </div>
+                <div class="grid-item add-grass add-gamestate" id="gameState">
+                    <img src="https://fontmeme.com/permalink/220505/70fb415bdbbb1a96db669ccc54d98a5e.png" *ngIf = "!gameStarted">
+                </div>
+                <div class="grid-item add-grass">
+                </div>
+                <div class="grid-item" style="background-color: rgb(192, 58, 58)">
+                    <h3 *ngIf="playerHP[1] > 0"><br>HP: {{playerHP[1]}}</h3>
+                    <h3 *ngIf="playerHP[1] <= 0"><br>Fainted</h3>
+                </div>
+                <div class="grid-item" style="background-color: #2a75bb">
+                </div>
+                <div class="grid-item add-grass">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/{{playerPokemon[0].id}}.png" *ngIf="playerPokemon.length> 0">
+                </div>
+                <div class="grid-item add-grass">
+                </div>
+                <div class="grid-item add-grass">
+                </div>
+                <div class="grid-item" style="background-color: rgb(192, 58, 58)">
+
+                </div>
+                <div class="grid-item add-ball" *ngFor="let pokemon of selectPokemon">
+                    <button (click)="addPokemon(pokemon)" id="imgHolder" #parent>
+                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon.id}}.png" #component (click)="click(component)"></button>
+                </div>
+            </div>
+        </section>
+
+        <section class="combatlog" *ngIf="!showBoard && showCombatLog" style="overflow: auto;">
+                <table style="margin-left: auto; margin-right: auto">
+                    <tr>
+                        <td>
+                            MATCHES WON: {{matchwinloss[0]}}
+                        </td>
+                        <td></td>
+                        <td>
+                            MATCHES TIED: {{matchwinloss[1]}}
+                        </td>
+                        <td></td>
+                        <td>
+                            MATCHES LOST: {{matchwinloss[2]}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            ROUND WINS: {{roundwinloss[0]}}
+                        </td>
+                        <td></td>
+                        <td>
+                            ROUND TIES: {{roundwinloss[1]}}
+                        </td>
+                        <td></td>
+                        <td>
+                            ROUND LOSSES: {{roundwinloss[2]}}
+                        </td>
+                    </tr>
+                </table>
+            <div *ngFor="let log of combatLog">
+                {{log}}
+            </div>
+        </section>
+
+        <section class="loginRegister" *ngIf="!showBoard && showLoginRegister">
+            <!-- login -->
+            <app-login id="login" loggedInUser="loggedInUser" (notify)="onNotify($event)" class="login-flex"></app-login>
+        </section>
+        <section class="LB" *ngIf="!showBoard && showLeaderboard">
+            <!-- leaderboard stuff-->
+            <app-leaderboard id="leaderboardPart"></app-leaderboard>
+        </section>
+                <section class="opponent-flex">
+            <div>
+                <div class="opponent-name">
+                    <span class="capitalize"><h2>{{opponentUser.username}}</h2></span>
+                </div>
+
+                <div class="player-grid" *ngFor="let pokemon of enemyPokemon">
+                    <div class= "player-list-flex"><img src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{pokemon.id}}.png" class="list-image"><span>{{pokemon.name}}</span><span><img src = "https://raw.githubusercontent.com/msikma/pokeresources/master/resources/type-icons/gen8/{{pokemon.type1}}.svg"></span></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <table style = "height: 100%; align-items: center;">
+            <tr>
+                <td>
+                    <button (click)="getPokemon()" id="ShufflePKM" *ngIf="!gameEnded" class = "bottom-button">Shuffle Pokemon</button>
+                    <button (click)="startGame()" *ngIf="gameEnded" class = "bottom-button"> New Game</button>
+                    <button (click)="showCombatLog = true; showBoard=false; showLoginRegister= false; showLeaderboard=false;" *ngIf="!showCombatLog && !showLoginRegister && !showLeaderboard" class = "bottom-button">Combat Log</button>
+                    <button (click)="showCombatLog = false; showBoard=true; showLoginRegister= false; showLeaderboard=false;" *ngIf="!showBoard" class = "bottom-button">Game Board</button>
+                    <button (click)="showBoard = false; showCombatLog = false; showLoginRegister=true; showLeaderboard=false;" class = "bottom-button">Login or Register</button>
+                    <button (click)="showLeaderboard=true; showBoard=false; showCombatLog=false; showLoginRegister=false;" class = "bottom-button">Leaderboard</button>              
+                </td>
+            </tr>
+        </table>
+
+        <!-- <button (click) = "run()"> EXECUTE A SINGLE ROUND</button> -->
+    </footer>
+</body>
+
+</html>

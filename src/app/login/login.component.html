@@ -1,0 +1,60 @@
+<!--top level menu for login or register-->
+<div class="everything">
+    <img class="pikachu" [src]="imageUrl" />
+    <!--button to go to login form-->
+    <div class="buttonsAndInputs">
+        <button
+            *ngIf="displayLoginOrRegister"
+            (click)="goToLogin()"
+        >
+            login
+        </button>
+        <!--button to go to register form-->
+        <button 
+            *ngIf="displayLoginOrRegister"
+            (click)="goToRegister()"
+        >
+        register
+        </button>
+        <!-- login form-->
+        <div *ngIf="displayLogin">
+            username: <input type="text" [(ngModel)]="userToLogin.username"/>
+            password: <input type="password" [(ngModel)]="userToLogin.password" />
+            <!-- -->
+            <button
+                (click)="tryToLogin()"
+            >
+            login
+            </button>
+            <!--back button-->
+            <button
+                (click)="goToLoginOrRegister()"
+            >
+            back
+            </button>
+        </div>
+        <!--register form-->
+        <div *ngIf="displayRegister">
+            username: <input type="text" [(ngModel)]="userToRegister.username"/>
+            password: <input type="password" [(ngModel)]="userToRegister.password">
+            <!-- -->
+            <button
+            (click)="tryToRegister()"
+            >
+            register
+            </button>
+            <!--back button-->
+            <button
+                (click)="goToLoginOrRegister()"
+            >
+            back
+            </button>
+        </div>
+        <div *ngIf="displayLoggedIn">
+            <button (click)="logout()">
+                logout
+            </button>
+        </div>
+    </div>
+    <div class="message" [style]="messageColor">{{message}}</div>
+</div>
